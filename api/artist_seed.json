@@ -1,0 +1,32 @@
+{
+    "artists" : [
+        {
+            "name": "Christina Aguilera",
+            "dob": "1980.12.18",
+            "genre": [ "Latin", "Pop" ],
+            "type": [ "Vocalist", "Dancer", "Judge" ],
+            "image": "https://pixel.nymag.com/imgs/daily/vulture/2016/06/17/17-christina-aguliera.w330.h330.jpg"
+        },
+        {
+            "name": "Nora En Pure",
+            "dob": "1990",
+            "genre": [ "Trance", "House" ],
+            "type": [ "Producer", "DiscJockey" ],
+            "image": "https://images1.miaminewtimes.com/imager/u/745xauto/8926569/nora-en-pure.jpg"
+        },
+        {
+            "name": "Willy Nelson",
+            "dob": "1933.04.23",
+            "genre": [
+                "Country",
+                "Folk"
+            ],
+            "type": [
+                "Producer",
+                "Vocalist",
+                "Guitarist"
+            ],
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Willie_Nelson_at_Farm_Aid_2009_-_Cropped.jpg/220px-Willie_Nelson_at_Farm_Aid_2009_-_Cropped.jpg"
+        }
+    ]
+}

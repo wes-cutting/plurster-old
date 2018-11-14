@@ -1,0 +1,26 @@
+{
+  "name": "plurster",
+  "version": "0.0.1",
+  "description": "Micro API for the Plurster tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "micro --port 4000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wes-cutting/plurster.git"
+  },
+  "author": "wesleycutting@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wes-cutting/plurster/issues"
+  },
+  "homepage": "https://github.com/wes-cutting/plurster#readme",
+  "dependencies": {
+    "micro": "^9.3.3",
+    "micro-cors": "^0.1.1",
+    "microrouter": "^3.1.3",
+    "monk": "^6.0.6"
+  }
+}
