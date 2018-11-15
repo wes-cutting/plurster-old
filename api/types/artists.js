@@ -17,22 +17,29 @@ const getArtistByID = async (req, res) => {
 }
 
 // [GET] /artists/name/:name 200[] Get Artists by Name
-const getArtistByName = (req, res) => {
-    send(res, 200, `Get me the Artist with Name - ${req.params.name}`)
+const getArtistByName = async (req, res) => {
+    let result = await artists.find({}).then(results => (results))
+    // console.log("PreFilter: ", result)
+    result = result.filter(artist => artist.name.toLowerCase().includes(req.params.name.toLowerCase()))
+    // console.log("PostFilter: ", result)
+    send(res, 200, result)
 }
 
 // [POST] /artists 200{} Create an Artist { name: '', dob: '', genre: [], type: [], image: '' }
-const createArtist = (req, res) => {
+const createArtist = async (req, res) => {
+    const result = await artists.find({}).then(results => (results))
     send(res, 200, `Create the Artist with ${req.body}`)
 }
 
 // [PUT] /artists/id/:id 200{} Update an Artist { name: '', dob: '', genre: [], type: [], image: '' }
-const updateArtist = (req, res) => {
+const updateArtist = async (req, res) => {
+    const result = await artists.find({}).then(results => (results))
     send(res, 200, `Update the Artist with ID ${req.params.id} using ${req.body}`)
 }
 
 // [DELETE] /artists/id/:id 200{} Delete an Artist
-const deleteArtist = (req, res) => {
+const deleteArtist = async (req, res) => {
+    const result = await artists.find({}).then(results => (results))
     send(res, 200, `Delete the Artist with ID - ${req.params.id}`)
 }
 

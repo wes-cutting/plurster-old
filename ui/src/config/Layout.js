@@ -6,8 +6,8 @@ class Layout extends Component {
         return (
             <div className="layout">
                 <h1>Welcome to my Concert App</h1>
-                {this.props.children}
-                <h5>Thanks for stopping by!</h5>
+                <div>{this.props.children}</div>
+                <div className="footer">Thanks for stopping by!</div>
             </div>
         );
     }
