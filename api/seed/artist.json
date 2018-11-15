@@ -15,7 +15,7 @@
             "image": "https://images1.miaminewtimes.com/imager/u/745xauto/8926569/nora-en-pure.jpg"
         },
         {
-            "name": "Willy Nelson",
+            "name": "Willie Nelson",
             "dob": "1933.04.23",
             "genre": [
                 "Country",
@@ -27,6 +27,20 @@
                 "Guitarist"
             ],
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Willie_Nelson_at_Farm_Aid_2009_-_Cropped.jpg/220px-Willie_Nelson_at_Farm_Aid_2009_-_Cropped.jpg"
+        },
+        {
+            "name": "Morgan Page",
+            "dob": "1981.05.31",
+            "genre": [
+                "Trance",
+                "House",
+                "Pop"
+            ],
+            "type": [
+                "Producer",
+                "DiscJockey"
+            ],
+            "image": "https://edmhunters-563e.kxcdn.com/mediafiles/dj/images/morgan-page_36.jpg"
         }
     ]
 }

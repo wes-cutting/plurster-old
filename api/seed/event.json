@@ -1,0 +1,24 @@
+{
+    "events": [
+        {
+            "name": "Das Energi",
+			"venues":  [ "Saltair" ],
+			"performers": [ "5bedba15377ff73b55e787a7" ],
+		    "description": "Annual Summer EDM Festival",
+			"kind": [ "EDM" ],
+			"notes": [ "I was a Photographer", "Lightning forced the event to close for a bit" ],
+            "dates": [ "2018.08.17", "2018.08.18" ],
+			"logo": "https://www.nowplayingutah.com/wp-content/uploads/sites/www.nowplayingutah.com/images/2018/04/dasenergi2018-299x400.jpg"
+        },
+        {
+            "name": "VooDoo",
+            "venues": [ "City Park, New Orleans"],
+            "performers": [ "5bec9a25377ff73b55e3f992" ],
+            "description": "Music & Art Festival in the heart of New Orleans, LA",
+            "kind": [ "Art", "Music", "Halloween" ],
+            "notes": [ "It was incredibly muddy" ],
+            "dates": [ "2018.10.26", "2018.10.27", "2018.10.28"],
+            "logo": "https://2ab9pu2w8o9xpg6w26xnz04d-wpengine.netdna-ssl.com/wp-content/uploads/2018/06/voodoo-experience-2018-logo-1200x630.jpg"
+        }
+    ]
+}

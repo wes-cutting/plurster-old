@@ -6,7 +6,8 @@ class ArtistShort extends Component {
         console.log('Inside Short: ', this.props.artist)
         return (
             <div key={this.props.artist.id}>
-                {this.props.artist.name}
+                <div>{this.props.artist.name}</div>
+                <img src={this.props.artist.image} width="100" alt="Not Found"/>
             </div>
         );
     }
