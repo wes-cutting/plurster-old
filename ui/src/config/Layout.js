@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './layout.css'
 
 class Layout extends Component {
     render() {
         return (
-            <div className="layout">
-                <h1>Welcome to my Concert App</h1>
-                <div>{this.props.children}</div>
-                <div className="footer">Thanks for stopping by!</div>
+            <div className="site">
+                <div className="centered content">
+                    <header className="theme">Welcome to my Concert App</header>
+                    <div>{this.props.children}</div>
+                </div>
+                <footer className="centered theme">Thanks for stopping by!</footer>
             </div>
         );
     }

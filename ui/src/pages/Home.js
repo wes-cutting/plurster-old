@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../config/Layout'
 import Artists from '../components/artists'
+import Test from '../config/Modal'
 
 class Home extends Component {
     state = {
@@ -33,6 +34,7 @@ class Home extends Component {
                     <input type="text" onChange={event => this.setState({search: event.target.value})}/>
                     <input type="submit" value="Search"/>
                 </form>
+                <Test/>
                 <Artists data={this.state.artists}/>
             </Layout>
         );
