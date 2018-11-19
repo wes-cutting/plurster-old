@@ -1,4 +1,4 @@
-const { send } = require('micro')
+const { send, json } = require('micro')
 const { get, post, put, del } = require('microrouter')
 const db = require('../dbconfig')
 
@@ -25,10 +25,11 @@ const getArtistByName = async (req, res) => {
     send(res, 200, result)
 }
 
-// [POST] /artists 200{} Create an Artist { name: '', dob: '', genre: [], type: [], image: '' }
+// [POST] /artists 200{} Create an Artist { 'name': '', dob: '', 'genre': [], 'type': [], 'image': '' }
 const createArtist = async (req, res) => {
-    const result = await artists.find({}).then(results => (results))
-    send(res, 200, `Create the Artist with ${req.body}`)
+    const body = await json(req)
+    const result = await artists.insert( body ).then(results => (results))
+    send(res, 200, result)
 }
 
 // [PUT] /artists/id/:id 200{} Update an Artist { name: '', dob: '', genre: [], type: [], image: '' }
@@ -47,7 +48,7 @@ module.exports = [
     get('/artists', getArtists),
     get('/artists/id/:id', getArtistByID),
     get('/artists/name/:name', getArtistByName),
-    post('/artist', createArtist),
+    post('/artists', createArtist),
     put('/artists/id/:id', updateArtist),
     del('/artists/id/:id', deleteArtist) 
 ]

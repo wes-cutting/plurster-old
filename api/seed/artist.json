@@ -41,6 +41,20 @@
                 "DiscJockey"
             ],
             "image": "https://edmhunters-563e.kxcdn.com/mediafiles/dj/images/morgan-page_36.jpg"
+        },
+        {
+            "name": "Marshall Bruce Mathers III",
+            "dob": "1972.10.17",
+            "genre": [
+                "Hip Hop"
+            ],
+            "type": [
+                "Producer",
+                "Vocalist",
+                "Actor",
+                "Song Writer"
+            ],
+            "image": "https://www.interviewmagazine.com/wp-content/uploads/2017/12/391x308-eminem-TN.jpg"
         }
     ]
 }

@@ -12,7 +12,7 @@
         },
         {
             "name": "VooDoo",
-            "venues": [ "City Park, New Orleans"],
+            "venues": [ "City Park, New Orleans" ],
             "performers": [ "5bec9a25377ff73b55e3f992" ],
             "description": "Music & Art Festival in the heart of New Orleans, LA",
             "kind": [ "Art", "Music", "Halloween" ],
