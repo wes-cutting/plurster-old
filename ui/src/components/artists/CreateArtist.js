@@ -50,7 +50,7 @@ export default class extends Component {
                     <input type="text" placeholder="Name"/>     
                     <input type="text" placeholder="Date of Birth"/>     
                     {this.state.genre.map((genre, idx) => (
-                        <div className="genre">
+                        <span className="genre">
                             <input
                                 type="text"
                                 placeholder={`Genre #${idx + 1} name`}
@@ -58,7 +58,7 @@ export default class extends Component {
                                 onChange={this.handleGenreChange(idx)}
                             />
                             <button type="button" onClick={this.handleRemoveGenre(idx)} className="small">-</button>
-                        </div>
+                        </span>
                     ))}
                     <button type="button" onClick={this.handleAddGenre} className="small">Add Genre</button>  
                     <input type="text" placeholder="Type"/>     
