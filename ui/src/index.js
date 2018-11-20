@@ -8,9 +8,9 @@ import CreateArtist from './components/artists/CreateArtist'
 
 const App = () => (
     <div>
-        {/* <Home/>  */}
+        <Home/> 
         {/* <About/> */}
-        <CreateArtist/>
+        {/* <CreateArtist/> */}
     </div>
 )
 

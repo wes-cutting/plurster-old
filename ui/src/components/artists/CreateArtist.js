@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import './artists.css'
-import Example from './test'
 
 /* 
 { 'name': '', dob: '', 'genre': [], 'type': [], 'image': '' }
@@ -9,7 +8,7 @@ export default class extends Component {
     state = {
         name: '',
         dob: '',
-        genre: [ 'Rock', 'Pop' ],
+        genre: [ '' ],
         type: [ '' ],
         image: '' 
     }
@@ -24,13 +23,6 @@ export default class extends Component {
         this.setState({ genre: newGenre });
     }
 
-    handleSubmit = (evt) => {
-        evt.preventDefault()
-        console.log(this.state)
-        // const { name, shareholders } = this.state;
-        // alert(`Incorporated: ${name} with ${shareholders.length} shareholders`);
-    }
-
     handleAddGenre = () => {
         this.setState({
             genre: this.state.genre.concat([ '' ])
@@ -43,14 +35,50 @@ export default class extends Component {
         });
     }
 
+    handleTypeChange = (idx) => (evt) => {
+        const newType = this.state.type.map((type, _idx) => {
+            if (idx !== _idx) return type;
+
+            return evt.target.value;
+        });
+
+        this.setState({ type: newType });
+    }
+
+    handleAddType = () => {
+        this.setState({
+            type: this.state.type.concat([''])
+        });
+    }
+
+    handleRemoveType = (idx) => () => {
+        this.setState({
+            type: this.state.type.filter((s, _idx) => idx !== _idx)
+        });
+    }
+
+    handleSubmit = async (evt) => {
+        evt.preventDefault()
+        console.log(this.state)
+        await fetch('http://localhost:4000/artists', {
+            method: 'POST', 
+            body: JSON.stringify(this.state), 
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
+    }
+
     render () {
         return (
             <Fragment>
                 <form className="flexy" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Name"/>     
-                    <input type="text" placeholder="Date of Birth"/>     
+                    <input type="text" placeholder="Name" onChange={event => this.setState({ name: event.target.value })}/>     
+                    <input type="text" placeholder="Date of Birth: YYYY.MM.DD" onChange={event => this.setState({ dob: event.target.value })}/>     
                     {this.state.genre.map((genre, idx) => (
-                        <span className="genre">
+                        <span className="genre" key={idx * 20}>
                             <input
                                 type="text"
                                 placeholder={`Genre #${idx + 1} name`}
@@ -61,11 +89,21 @@ export default class extends Component {
                         </span>
                     ))}
                     <button type="button" onClick={this.handleAddGenre} className="small">Add Genre</button>  
-                    <input type="text" placeholder="Type"/>     
-                    <input type="text" placeholder="Image URL"/> 
-                    <button>Add Artist</button>   
+                    {this.state.type.map((type, idx) => (
+                        <span className="type" key={idx * 10}>
+                            <input
+                                type="text"
+                                placeholder={`Type #${idx + 1} name`}
+                                value={type}
+                                onChange={this.handleTypeChange(idx)}
+                            />
+                            <button type="button" onClick={this.handleRemoveType(idx)} className="small">-</button>
+                        </span>
+                    ))}
+                    <button type="button" onClick={this.handleAddType} className="small">Add Type</button>      
+                    <input type="text" placeholder="Image URL" onChange={event => this.setState({ image: event.target.value })}/> 
+                    <button>Create Artist</button>   
                 </form>
-                <Example/>
             </Fragment>
         )
     }

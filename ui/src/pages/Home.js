@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../config/Layout'
 import Artists from '../components/artists'
-import Test from '../config/Modal'
+import ModalTest from '../config/Modal'
 
 class Home extends Component {
     state = {
@@ -19,7 +19,7 @@ class Home extends Component {
         // console.log("Search: ", this.state.search)
         await fetch('http://localhost:4000/artists/name/' + this.state.search)
             .then(res => res.json())
-            .then(data => this.setState({ artists: data }))
+            .then(info => this.setState({ artists: info }))
         // console.log('search results: ', this.state.artists)
     }
 
@@ -34,7 +34,7 @@ class Home extends Component {
                     <input type="text" onChange={event => this.setState({search: event.target.value})}/>
                     <input type="submit" value="Search"/>
                 </form>
-                <Test/>
+                <ModalTest/>
                 <Artists data={this.state.artists}/>
             </Layout>
         );

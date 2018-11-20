@@ -40,8 +40,8 @@ const updateArtist = async (req, res) => {
 
 // [DELETE] /artists/id/:id 200{} Delete an Artist
 const deleteArtist = async (req, res) => {
-    const result = await artists.find({}).then(results => (results))
-    send(res, 200, `Delete the Artist with ID - ${req.params.id}`)
+    const result = await artists.remove({ "_id": req.params.id }).then(results => (results))
+    send(res, 200, result)
 }
 
 module.exports = [

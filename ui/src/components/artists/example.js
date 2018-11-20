@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Used a tutorial online to add dynamic field count, this is the example from this resource:
+// https://goshakkk.name/array-form-inputs/
 export default class extends React.Component {
     constructor() {
         super();
