@@ -20,7 +20,9 @@ const getArtistByID = async (req, res) => {
 const getArtistByName = async (req, res) => {
     let result = await artists.find({}).then(results => (results))
     // console.log("PreFilter: ", result)
-    result = result.filter(artist => artist.name.toLowerCase().includes(req.params.name.toLowerCase()))
+    result = result.filter(artist =>
+        artist.name.toLowerCase().includes(req.params.name.toLowerCase())
+    )
     // console.log("PostFilter: ", result)
     send(res, 200, result)
 }

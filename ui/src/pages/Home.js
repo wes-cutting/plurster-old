@@ -18,9 +18,13 @@ class Home extends Component {
     search = async (event) => {
         event.preventDefault()
         // console.log("Search: ", this.state.search)
-        await fetch('http://localhost:4000/artists/name/' + this.state.search)
-            .then(res => res.json())
-            .then(info => this.setState({ artists: info }))
+        if(this.state.search === ''){
+            this.grabArtists()
+        } else {
+            await fetch('http://localhost:4000/artists/name/' + this.state.search)
+                .then(res => res.json())
+                .then(info => this.setState({ artists: info }))
+        }
         // console.log('search results: ', this.state.artists)
     }
 
@@ -33,7 +37,10 @@ class Home extends Component {
         return (
             <Layout>
                 <form onSubmit={this.search}>
-                    <input type="text" onChange={event => this.setState({search: event.target.value})}/>
+                    <input 
+                        type="text" 
+                        onChange={event => this.setState({search: event.target.value})}
+                    />
                     <input type="submit" value="Search"/>
                 </form>
                 <Modal btnText={createText} title={createText}>
