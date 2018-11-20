@@ -4,13 +4,11 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './pages/Home'
 import About from './pages/About'
-import CreateArtist from './components/artists/CreateArtist'
 
 const App = () => (
     <div>
         <Home/> 
         {/* <About/> */}
-        {/* <CreateArtist/> */}
     </div>
 )
 

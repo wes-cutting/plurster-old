@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
+import Modal from '../../config/Modal'
+import ArtistForm from './ArtistForm'
 import DeleteArtist from './DeleteArtist'
 
 class ArtistShort extends Component {
 
     render() {
         // console.log('Inside Short: ', this.props.artist)
+        const artist = this.props.artist
+        const updateText = "Update Artist"
+        const path = `/id/${artist._id}` 
         return (
-            <div key={this.props.artist._id}>
-                <div>{this.props.artist.name}</div>
-                <img src={this.props.artist.image} width="100" alt="Not Found"/>
-                <DeleteArtist data={this.props.artist._id}/>
+            <div key={artist._id}>
+                <div>{artist.name}</div>
+                <img src={artist.image} width="100" alt="Not Found"/>
+                <Modal btnText="Update" title={updateText}>
+                    <ArtistForm 
+                        artist={artist} 
+                        btnText={updateText}
+                        action="PUT"
+                        path={path}    
+                    />
+                </Modal>
+                <DeleteArtist data={artist._id}/>
             </div>
         );
     }

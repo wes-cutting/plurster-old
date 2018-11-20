@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Layout from '../config/Layout'
 import Artists from '../components/artists'
-import ModalTest from '../config/Modal'
+import ArtistForm from '../components/artists/ArtistForm'
+import Modal from '../config/Modal'
 
 class Home extends Component {
     state = {
@@ -28,13 +29,19 @@ class Home extends Component {
     }
     render() {
         // console.log("Home Rendering")
+        const createText = "Create Artist"
         return (
             <Layout>
                 <form onSubmit={this.search}>
                     <input type="text" onChange={event => this.setState({search: event.target.value})}/>
                     <input type="submit" value="Search"/>
                 </form>
-                <ModalTest/>
+                <Modal btnText={createText} title={createText}>
+                    <ArtistForm 
+                        btnText={createText} 
+                        action="POST"
+                    />
+                </Modal>
                 <Artists data={this.state.artists}/>
             </Layout>
         );

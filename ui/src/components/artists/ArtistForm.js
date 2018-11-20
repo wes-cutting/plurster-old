@@ -1,16 +1,26 @@
 import React, { Component, Fragment } from 'react'
 import './artists.css'
+import { artistAPI } from '../../config/coms'
 
 /* 
-{ 'name': '', dob: '', 'genre': [], 'type': [], 'image': '' }
+{ 'name': '', 'dob': '', 'genre': [], 'type': [], 'image': '' }
 */
 export default class extends Component {
-    state = {
-        name: '',
-        dob: '',
-        genre: [ '' ],
-        type: [ '' ],
-        image: '' 
+    constructor(props) {
+        super(props)
+        let artist;
+        if (props.artist) {
+            artist = props.artist
+        } else {
+            artist = { 'name': '', 'dob': '', 'genre': [], 'type': [], 'image': '' }
+        }
+        this.state = {
+            name: artist.name,
+            dob: artist.dob,
+            genre: artist.genre,
+            type: artist.type,
+            image: artist.image
+        }
     }
 
     handleGenreChange = (idx) => (evt) => {
@@ -57,26 +67,32 @@ export default class extends Component {
         });
     }
 
-    handleSubmit = async (evt) => {
-        evt.preventDefault()
-        console.log(this.state)
-        await fetch('http://localhost:4000/artists', {
-            method: 'POST', 
-            body: JSON.stringify(this.state), 
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-            .then(response => console.log('Success:', JSON.stringify(response)))
-            .catch(error => console.error('Error:', error));
+    handleSubmit = (evt) => {
+        // evt.preventDefault()
+        // console.log(this.state)
+        let path = this.props.path
+        if(!path){
+            path = ''
+        }   
+        artistAPI(this.state, this.props.action, path)
     }
 
     render () {
         return (
             <Fragment>
                 <form className="flexy" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Name" onChange={event => this.setState({ name: event.target.value })}/>     
-                    <input type="text" placeholder="Date of Birth: YYYY.MM.DD" onChange={event => this.setState({ dob: event.target.value })}/>     
+                    <input 
+                        type="text" 
+                        placeholder="Name"
+                        value={this.state.name} 
+                        onChange={event => this.setState({ name: event.target.value })}
+                    />     
+                    <input 
+                        type="text" 
+                        placeholder="Date of Birth: YYYY.MM.DD"
+                        value={this.state.dob} 
+                        onChange={event => this.setState({ dob: event.target.value })}
+                    />     
                     {this.state.genre.map((genre, idx) => (
                         <span className="genre" key={idx * 20}>
                             <input
@@ -101,8 +117,13 @@ export default class extends Component {
                         </span>
                     ))}
                     <button type="button" onClick={this.handleAddType} className="small">Add Type</button>      
-                    <input type="text" placeholder="Image URL" onChange={event => this.setState({ image: event.target.value })}/> 
-                    <button>Create Artist</button>   
+                    <input 
+                        type="text" 
+                        placeholder="Image URL" 
+                        value={this.state.image}
+                        onChange={event => this.setState({ image: event.target.value })}
+                    /> 
+                    <button>{this.props.btnText}</button>   
                 </form>
             </Fragment>
         )

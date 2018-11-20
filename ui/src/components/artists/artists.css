@@ -1,7 +1,6 @@
 .flexy {
     display: flex;
     flex-direction: column;
-    width: 50vw;
 }
 
 .flexy * {
