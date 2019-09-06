@@ -7,9 +7,10 @@ const modalStyle = {
     },
     'content': {
         top: '15vh',
-        left: '15vw',
-        right: '15vw',
+        left: '35vw',
+        // right: '15vw',
         bottom: '15vh',
+        width: '25vw'
     }
 }
 

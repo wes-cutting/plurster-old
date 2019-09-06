@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './components/artists/artists.css'
 import * as serviceWorker from './serviceWorker';
 import Home from './pages/Home'
-import About from './pages/About'
+// import About from './pages/About'
 
 const App = () => (
     <div>

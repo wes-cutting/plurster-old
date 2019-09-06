@@ -1,8 +1,26 @@
-.flexy {
+.flex-col {
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
 }
 
-.flexy * {
+.flex-col * {
     margin: .2em
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-row > * {
+    margin: .2em
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 3px #123962;
+    padding: .5em;
 }

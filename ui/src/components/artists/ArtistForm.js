@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import './artists.css'
 import { artistAPI } from '../../config/coms'
 
 /* 
@@ -80,7 +79,7 @@ export default class extends Component {
     render () {
         return (
             <Fragment>
-                <form className="flexy" onSubmit={this.handleSubmit}>
+                <form className="flex-col form" onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 
                         placeholder="Name"

@@ -11,18 +11,20 @@ class ArtistShort extends Component {
         const updateText = "Update Artist"
         const path = `/id/${artist._id}` 
         return (
-            <div key={artist._id}>
+            <div key={artist._id} className="card">
                 <div>{artist.name}</div>
                 <img src={artist.image} width="100" alt="Not Found"/>
-                <Modal btnText="Update" title={updateText}>
-                    <ArtistForm 
-                        artist={artist} 
-                        btnText={updateText}
-                        action="PUT"
-                        path={path}    
-                    />
-                </Modal>
-                <DeleteArtist data={artist._id}/>
+                <div>
+                    <Modal btnText="Update" title={updateText}>
+                        <ArtistForm 
+                            artist={artist} 
+                            btnText={updateText}
+                            action="PUT"
+                            path={path}    
+                        />
+                    </Modal>
+                    <DeleteArtist data={artist._id}/>
+                </div>
             </div>
         );
     }
