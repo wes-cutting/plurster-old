@@ -20,11 +20,13 @@ class ArtistShort extends Component {
                             artist={artist} 
                             btnText={updateText}
                             action="PUT"
-                            path={path}    
+                            path={path}
+                            refresher={this.props.refresher} 
                         />
                     </Modal>
                     <DeleteArtist data={artist._id}/>
                 </div>
+                          
             </div>
         );
     }

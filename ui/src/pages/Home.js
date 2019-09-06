@@ -3,17 +3,17 @@ import Layout from '../config/Layout'
 import Artists from '../components/artists'
 import ArtistForm from '../components/artists/ArtistForm'
 import Modal from '../config/Modal'
-
+import { url } from '../config/coms'
 class Home extends Component {
     state = {
         artists: [],
         search: ''
     }
     grabArtists = async () => {
-        await fetch('http://localhost:4000/artists')
+        await fetch(`${url}/artists`)
             .then(res => res.json())
             .then(data => this.setState({artists: data}))
-        console.log('all results: ', this.state.artists)
+        console.log('all artists: ', this.state.artists)
     }
     search = async (event) => {
         event.preventDefault()
@@ -21,7 +21,7 @@ class Home extends Component {
         if(this.state.search === ''){
             this.grabArtists()
         } else {
-            await fetch('http://localhost:4000/artists/name/' + this.state.search)
+            await fetch(`${url}/artists/name/${ this.state.search}`)
                 .then(res => res.json())
                 .then(info => this.setState({ artists: info }))
         }
@@ -47,9 +47,10 @@ class Home extends Component {
                     <ArtistForm 
                         btnText={createText} 
                         action="POST"
+                        refresher={this.grabArtists}
                     />
                 </Modal>
-                <Artists data={this.state.artists}/>
+                <Artists data={this.state.artists} refresher={this.grabArtists}/>
             </Layout>
         );
     }

@@ -6,13 +6,13 @@ const artists = db.get('Artist')
 
 // [GET] /artists 200[] Get all of the Artists
 const getArtists = async (req, res) => {
-    const result = await artists.find({}).then( results => ( results ) )
-    send(res, 200, result)
+    const result = await artists.find({}).then(results => (results))
+    return send(res, 200, result)
 }
 
 // [GET] /artists/id/:id 200{} Get a single Artist by ID
 const getArtistByID = async (req, res) => {
-    const result = await artists.find({ "_id" : req.params.id }).then(results => (results))
+    const result = await artists.find({ "_id": req.params.id }).then(results => (results))
     send(res, 200, result)
 }
 
@@ -30,14 +30,14 @@ const getArtistByName = async (req, res) => {
 // [POST] /artists 200{} Create an Artist { 'name': '', dob: '', 'genre': [], 'type': [], 'image': '' }
 const createArtist = async (req, res) => {
     const body = await json(req)
-    const result = await artists.insert( body ).then(results => (results))
-    send(res, 200, result)
+    const result = await artists.insert(body).then(results => (results))
+    a
 }
 
 // [PUT] /artists/id/:id 200{} Update an Artist { name: '', dob: '', genre: [], type: [], image: '' }
 const updateArtist = async (req, res) => {
     const body = await json(req)
-    const result = await artists.update({ "_id": req.params.id }, body ).then(results => (results))
+    const result = await artists.update({ "_id": req.params.id }, body).then(results => (results))
     send(res, 200, result)
 }
 
@@ -53,5 +53,5 @@ module.exports = [
     get('/artists/name/:name', getArtistByName),
     post('/artists', createArtist),
     put('/artists/id/:id', updateArtist),
-    del('/artists/id/:id', deleteArtist) 
+    del('/artists/id/:id', deleteArtist)
 ]
