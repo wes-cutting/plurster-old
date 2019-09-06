@@ -4,10 +4,14 @@ import { artistAPI } from '../../config/coms'
 class DeleteArtist extends Component {
 
     handleDelete = async (event) => { 
-        // event.preventDefault()
+        event.preventDefault()
         const path = `/id/${this.props.data}`
         // console.log(path)
-        artistAPI({}, 'DELETE', path)
+        await artistAPI({}, 'DELETE', path).then(() => {
+            if (this.props.refresher) {
+                this.props.refresher()
+            }
+        })
     }
     render() {
         return (

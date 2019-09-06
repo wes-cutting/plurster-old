@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000'
+export const url = 'https://plurster-fhwcsemshk.now.sh'
 
 export const artistAPI = async (data, action, path = '') => {
     await fetch(url + '/artists' + path, {
@@ -11,3 +11,4 @@ export const artistAPI = async (data, action, path = '') => {
         .then(response => console.log('Success:', JSON.stringify(response)))
         .catch(error => console.error('Error:', error));
 }
+

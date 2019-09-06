@@ -14,7 +14,7 @@ const modalStyle = {
 }
 
 const contentStyle = {
-    'text-align': 'center'
+    'textAlign': 'center'
 }
 
 export default class extends Component {
@@ -31,6 +31,11 @@ export default class extends Component {
     }
 
     render() {
+        const children = React.Children.map(this.props.children, child => {
+            return React.cloneElement(child, {
+                closeModal: () => this.setState({ showModal: false })
+            })
+        })
         return (
             <div>
                 <button onClick={this.handleOpenModal}>{this.props.btnText}</button>
@@ -41,7 +46,7 @@ export default class extends Component {
                 >
                     <div style={contentStyle}>
                         <h2>{this.props.title}</h2>
-                        {this.props.children}
+                        {children}
                         <button onClick={this.handleCloseModal}>Close</button>
                     </div>
                 </ReactModal>

@@ -67,14 +67,23 @@ export default class extends Component {
         });
     }
 
-    handleSubmit = (evt) => {
-        // evt.preventDefault()
-        // console.log(this.state)
+    handleSubmit = async (evt) => {
+        evt.preventDefault()
+        console.log(this.state)
         let path = this.props.path
         if(!path){
             path = ''
         }   
-        artistAPI(this.state, this.props.action, path)
+        await artistAPI(this.state, this.props.action, path).then(() => {
+            console.log(this)
+            if (this.props.refresher) {
+                this.props.refresher()
+            }
+            if (this.props.closeModal) {
+                this.props.closeModal()
+            }
+        })
+        
     }
 
     render () {
