@@ -1,0 +1,22 @@
+{
+  "name": "plurster-api-v2",
+  "version": "0.1.0",
+  "description": "Express.JS based RESTful Web API for the Plurster Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": " "
+  },
+  "author": "Wes Cutting",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "mongodb": "^3.3.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.2",
+    "path": "^0.12.7",
+    "pug": "^2.0.4"
+  }
+}
