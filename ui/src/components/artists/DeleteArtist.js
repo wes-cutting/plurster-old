@@ -5,7 +5,7 @@ class DeleteArtist extends Component {
 
     handleDelete = async (event) => { 
         event.preventDefault()
-        const path = `/id/${this.props.data}`
+        const path = `/${this.props.data}`
         // console.log(path)
         await artistAPI({}, 'DELETE', path).then(() => {
             if (this.props.refresher) {

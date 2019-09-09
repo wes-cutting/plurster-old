@@ -1,4 +1,4 @@
-export const url = 'https://plurster-fhwcsemshk.now.sh'
+export const url = process.env.REACT_APP_DEV_API
 
 export const artistAPI = async (data, action, path = '') => {
     await fetch(url + '/artists' + path, {

@@ -9,7 +9,7 @@ class ArtistShort extends Component {
         // console.log('Inside Short: ', this.props.artist)
         const artist = this.props.artist
         const updateText = "Update Artist"
-        const path = `/id/${artist._id}` 
+        const path = `/${artist._id}` 
         return (
             <div key={artist._id} className="card">
                 <div>{artist.name}</div>

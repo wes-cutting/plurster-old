@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactModal from 'react-modal'
 
+const root = document.getElementById('root')
 const modalStyle = {
     'overlay': {
         'backgroundColor': 'rgba(121,158,178, 0.75)'
@@ -44,6 +45,7 @@ export default class extends Component {
                     isOpen={this.state.showModal}
                     contentLabel="Dynamic Modal"
                     style={modalStyle}
+                    appElement={root}
                 >
                     <div style={contentStyle}>
                         <h2>{this.props.title}</h2>

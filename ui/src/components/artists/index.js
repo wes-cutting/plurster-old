@@ -8,7 +8,8 @@ class Artists extends Component {
         const artists = this.props.data.map(artist => 
             <ArtistShort 
                 artist={artist} 
-                refresher={this.props.refresher}/>
+                refresher={this.props.refresher}
+                key={artist._id}/>
         )
         return (
             <div className="flex-row">
