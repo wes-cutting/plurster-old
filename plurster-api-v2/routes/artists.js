@@ -5,7 +5,7 @@ const { getArtists,
     createArtist, 
     updateArtist, 
     deleteArtist 
-} = require('../data-access/artists')
+} = require('../data/access/artists')
 
 /* GET Artists. */
 router.get("/", async (req, res, next) => {
