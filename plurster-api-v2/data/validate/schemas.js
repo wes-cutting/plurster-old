@@ -4,21 +4,22 @@ const check = require('check-types')
 const artistSchema = {
     birthName: check.maybe.string,
     stageName: check.string,
-    dob: check.maybe.date,
+    dob: check.maybe.string,
+    country: check.maybe.string,
     image: check.string,
     desc: check.string,
     website: check.maybe.string,
-    genres: check.array.of.maybe.string,
-    crafts: check.array.of.maybe.string,
-    groups: check.array.of.maybe.string,
-    events: check.array.of.maybe.string,
-    likes: check.array.of.maybe.string,
+    genres: check.maybe.array.of.string,
+    crafts: check.maybe.array.of.string,
+    groups: check.maybe.array.of.string,
+    events: check.maybe.array.of.string,
+    likes: check.maybe.array.of.string,
 };
 
 const craftSchema = {
     name: check.string,
     desc: check.string,
-    artists: check.array.of.maybe.string,
+    artists: check.maybe.array.of.string,
 }
 
 const eventSchema = {
@@ -28,18 +29,18 @@ const eventSchema = {
     desc: check.string,
     start: check.date,
     end: check.date,
-    artists: check.array.of.maybe.string,
-    groups: check.array.of.maybe.string,
-    venues: check.array.of.maybe.string,
-    organizers: check.array.of.maybe.string,
+    artists: check.maybe.array.of.string,
+    groups: check.maybe.array.of.string,
+    venues: check.maybe.array.of.string,
+    organizers: check.maybe.array.of.string,
 }
 
 const genreSchema = {
     name: check.string,
     desc: check.string,
-    artists: check.array.of.maybe.string,
-    groups: check.array.of.maybe.string,
-    likes: check.array.of.maybe.string,
+    artists: check.maybe.array.of.string,
+    groups: check.maybe.array.of.string,
+    likes: check.maybe.array.of.string,
 }
 
 const groupSchema = {
@@ -48,9 +49,10 @@ const groupSchema = {
     formed: check.maybe.date,
     image: check.string,
     website: check.maybe.string,
-    members: check.array.of.string,
-    genres: check.array.of.string,
-    events: check.array.of.string,
+    members: check.maybe.array.of.string,
+    genres: check.maybe.array.of.string,
+    events: check.maybe.array.of.string,
+    venues: check.maybe.array.of.string
 }
 
 const organizerSchema = {
@@ -66,20 +68,20 @@ const profileSchema = {
     displayName: check.string,
     userId: check.string,
     bio: check.string,
-    favoriteGenres: check.array.of.maybe.string,
-    favoriteArtists: check.array.of.maybe.string,
-    sightings: check.array.of.maybe.string,
+    favoriteGenres: check.maybe.array.of.string,
+    favoriteArtists: check.maybe.array.of.string,
+    sightings: check.maybe.array.of.string,
 }
 
 const sightingSchema = {
     userId: check.string,
     date: check.date,
     notes: check.string,
-    seers: check.array.of.maybe.string,
-    artist: check.array.of.maybe.string,
-    group: check.array.of.maybe.string,
-    event: check.array.of.maybe.string,
-    venue: check.array.of.maybe.string,
+    seers: check.maybe.array.of.string,
+    artist: check.maybe.array.of.string,
+    group: check.maybe.array.of.string,
+    event: check.maybe.array.of.string,
+    venue: check.maybe.array.of.string,
 }
 
 const venueSchema = {
@@ -92,8 +94,8 @@ const venueSchema = {
     desc: check.maybe.string,
     image: check.string,
     website: check.maybe.string,
-    events: check.array.of.maybe.string,
-    organizers: check.array.of.maybe.string,
+    events: check.maybe.array.of.string,
+    organizers: check.maybe.array.of.string,
 };
 
 module.exports = {
