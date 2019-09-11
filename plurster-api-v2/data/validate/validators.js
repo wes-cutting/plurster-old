@@ -9,7 +9,8 @@ const validateAgainstSchema = (thing, thingSchema) => {
             valid.add(false)
         }
     }
-    return valid.size === 1 ? true : false
+    const validCheck = valid.size === 1 && valid[0] !== false
+    return validCheck
 }
 
 module.exports = {
